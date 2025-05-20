@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.personallibrarymanager.MainController">
+
+    <top>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <!-- Book Entry Section -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <TextField fx:id="titleField" promptText="Title" prefWidth="150"/>
+                <TextField fx:id="authorField" promptText="Author" prefWidth="150"/>
+                <TextField fx:id="genreField" promptText="Genre" prefWidth="150"/>
+                <CheckBox fx:id="readCheckBox" text="Read"/>
+                <Button onAction="#addBook" text="Add" textFill="white" style="-fx-background-color: #28a745;" minWidth="80"/>
+                <Button onAction="#updateBook" text="Update" style="-fx-background-color: #007bff; -fx-text-fill: white;" minWidth="80"/>
+                <Button onAction="#deleteBook" text="Delete" style="-fx-background-color: #dc3545; -fx-text-fill: white;" minWidth="80"/>
+            </HBox>
+
+            <!-- Filter Section -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Filter by:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="filterChoiceBox" prefWidth="120"/>
+                <TextField fx:id="filterField" promptText="Enter author or genre" prefWidth="200"/>
+                <Button onAction="#filterBooks" text="Filter" style="-fx-background-color: #17a2b8; -fx-text-fill: white;" minWidth="80"/>
+                <Button onAction="#clearFilter" text="Clear Filter" style="-fx-background-color: #ffc107; -fx-text-fill: black;" minWidth="100"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="bookTable" onMouseClicked="#onBookClick" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="titleColumn" text="Title" prefWidth="200"/>
+                <TableColumn fx:id="authorColumn" text="Author" prefWidth="200"/>
+                <TableColumn fx:id="genreColumn" text="Genre" prefWidth="150"/>
+                <TableColumn fx:id="readColumn" text="Read" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
