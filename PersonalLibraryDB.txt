@@ -1,0 +1,20 @@
+CREATE TABLE books (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    title NVARCHAR(255) NOT NULL,
+    author NVARCHAR(255) NOT NULL,
+    genre NVARCHAR(100),
+    is_read BIT DEFAULT 0
+);
+
+
+
+
+INSERT INTO books (title, author, genre, is_read) VALUES
+('1984', 'George Orwell', 'Dystopian', 1),
+('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1),
+('The Great Gatsby', 'F. Scott Fitzgerald', 'Classic', 0),
+('The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 1),
+('A Brief History of Time', 'Stephen Hawking', 'Science', 0),
+('Pride and Prejudice', 'Jane Austen', 'Romance', 1),
+('The Catcher in the Rye', 'J.D. Salinger', 'Fiction', 0),
+('Clean Code', 'Robert C. Martin', 'Programming', 1);
